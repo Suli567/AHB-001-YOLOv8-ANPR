@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ultralytics-test
+spec:
+  selector:
+    matchLabels:
+      app: ultralytics-test
+  template:
+    metadata:
+      labels:
+        app: ultralytics-test
+    spec:
+      containers:
+      - name: ultralytics-test
+        image: bikal-yolov8-anpr:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
